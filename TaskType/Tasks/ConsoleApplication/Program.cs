@@ -142,10 +142,42 @@
     Console.WriteLine(result1);
     Console.WriteLine(result2);
 }
-// 9. Ввести две строки, если две строки числа то ввести арифметический оператор, b в зависисмоти от 
-// арфметического оператора произвести то действие в проитивных случаях произвести вывод сообщений.
-//  Сделать проверку на null оператора (if-else, switch, сокращенный switch)
+{// 9. Ввести две строки, если две строки числа то ввести арифметический оператор, b в зависисмоти от 
+ // арфметического оператора произвести то действие в проитивных случаях произвести вывод сообщений.
+ //  Сделать проверку на null оператора (if-else, switch, сокращенный switch)
+    string? number1 = (Console.ReadLine());
+    string? number2 = (Console.ReadLine());
+    if (int.TryParse(number1, out int value1) && int.TryParse(number2, out int value2))
+    {
+        Console.WriteLine("Введите арифметический оператор +,-,*,/,%");
+        string? shift = Console.ReadLine();
+        if (shift?.Equals("+") ?? false)
+        {
+            Console.WriteLine(value1 + value2);
+        }
+        else if (shift?.Equals("-") ?? false)
+        {
+            Console.WriteLine(value1 - value2);
+        }
+        else if (shift?.Equals("*") ?? false)
+        {
+            Console.WriteLine(value1 * value2);
+        }
+        else if (shift?.Equals("/") ?? false)
+        {
+            Console.WriteLine(value1 / value2);
+        }
+        else if (shift?.Equals("%") ?? false)
+        {
+            Console.WriteLine(value1 % value2);
+        }
+    }
+    else
+    {
+        Console.WriteLine($"{number1} {number2}");
+    }
 
+}
 
 {// 10. Ввести две строки и произвести сложение данных строк всеми известными способами
     int number1 = Convert.ToInt32(Console.ReadLine());
@@ -154,17 +186,33 @@
     number1 = number1 + number2;
     number3 = number1 + number2;
     number1 += number2;
-    number1 += number2;
 }
 
-{// 11. Ввести строку до 5 символов, если строка число то вывести для кажкой цифры в числе
-//  кратно оно двум либо нет, то есть 6352 => 6 крастно двум, 3 не кратно двум, 5  не кратно двум,
-//  2  кратно двум (if-else, тернаный оператор)
+{// 11. Ввести строку до 5 символов, если строка число то вывести для каждой цифры в числе
+ //  кратно оно двум либо нет, то есть 6352 => 6 кратно двум, 3 не кратно двум, 5  не кратно двум,
+ //  2  кратно двум (if-else, тернаный оператор)
+    int? number1 = Convert.ToInt32(Console.ReadLine());
+    int? number2 = Convert.ToInt32(Console.ReadLine());
+
+
+
 
 }
 
 {// 12. Ввести две строки, произвести проверку на пустоту, если строки имеют символы то если
-//  первая строка больше второй вывести сумму длин строк, в противном случае разность 2 от первой
-//  (if-else, тернаный оператор, *.Length, string.IsNullorEmpty)
-
+ //  первая строка больше второй вывести сумму длин строк, в противном случае разность 2 от первой
+ //  (if-else, тернаный оператор, *.Length, string.IsNullorEmpty)
+    string? number1 = Console.ReadLine();
+    string? number2 = Console.ReadLine();
+    if (!String.IsNullOrEmpty(number1) && !String.IsNullOrEmpty(number2))
+    {
+        if (number1.Length > number2.Length)
+        { Console.WriteLine(number1.Length + number2.Length); }
+        else
+        { Console.WriteLine(number2.Length - number1.Length); }
+    }
+    else
+    {
+        Console.WriteLine();
+    }
 }
