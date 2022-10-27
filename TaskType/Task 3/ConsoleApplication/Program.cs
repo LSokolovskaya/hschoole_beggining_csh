@@ -88,8 +88,7 @@
     {
         double resoult1 = (-nomerB + Math.Sqrt(nomerDiskriminant)) / (2 * nomerA);
         double resoult2 = (-nomerB - Math.Sqrt(nomerDiskriminant)) / (2 * nomerA);
-        Console.WriteLine(resoult1 > resoult2 ? ($" Корни: {resoult2}, {resoult1}") : ($" Корни: {resoult1}, {resoult2}")); //тернарный
-                                                                                                                            //     Console.WriteLine($" Корени: {resoult1}, {resoult2}");
+        Console.WriteLine(resoult1 > resoult2 ? ($" Корни: {resoult2}, {resoult1}") : ($" Корни: {resoult1}, {resoult2}")); //тернарный                                                                                                            //     Console.WriteLine($" Корени: {resoult1}, {resoult2}");
     }
     else if (nomerDiskriminant < 0)
     {
@@ -101,6 +100,7 @@
         Console.WriteLine($" Корень: {resoult}");
     }
 }
+{
 Console.WriteLine("7. Пользователь вводит число от 1 до 9999 (сумму выдачи в банкомате). Необходимо вывести на экран словами введенную сумму и в конце написать название валюты с правильным окончанием. Например: 7431 – семь тысяч четыреста тридцать один доллар, 2149 – две тысячи сто сорок девять долларов, 15 – пятнадцать долларов, 3 – три доллара.");
 Console.WriteLine("Введите число");
 int number = Convert.ToInt32(Console.ReadLine());
@@ -345,6 +345,7 @@ else
         Console.WriteLine("большой палец");
     }
 }
+}
 
 // Необходимо написать программу, которая проверяет пользователя на знание
 // таблицы умножения. Пользователь сам вводит два целых однозначных числа.
@@ -399,55 +400,64 @@ else
 // если нечетный влево. Полученный результат вывести на экран
 {
     Console.WriteLine("Введите первое число");
-    int number12 = Convert.ToInt32(Console.ReadLine());
+    int number1 = Convert.ToInt32(Console.ReadLine());
     Console.WriteLine("Введите второе число");
     int number2 = Convert.ToInt32(Console.ReadLine());
-    if (number12 == 0 || number2 == 0)
+    int result;
+    if (number1 == 0 || number2 == 0)
     {
         //необходимо получить битовую инверсию числа не равного 0
-        if (number12 == 0)
+        if (number1 == 0)
         {
-
+            result = ~number2;
+            Console.WriteLine(result);
+        }
+        else
+        {
+            result = ~number1;
+            Console.WriteLine(result);
         }
     }
-    else if (number12 > 20) //если первое больше 20, то найти остаток от деления большего на меньшее
+    else if (number1 > 20) //если первое больше 20, то найти остаток от деления большего на меньшее
     {
-        if (number12 > number2) //необходимо найти остаток от деления большего на меньшее
+        if (number1 > number2) //необходимо найти остаток от деления большего на меньшее
         {
-            double result1 = number1 % number2;
+            result = number1 % number2;
             Console.WriteLine($"Остаток от деления большего числа на меньшее: {result} ");
         }
         else
         {
-            double result1 = number2 % number1;
+            result = number2 % number1;
             Console.WriteLine($"Остаток от деления большего числа на меньшее: {result} ");
         }
     }
     else if (number2 < 0)//если второе меньше 0
     {
         // найти модуль целой часть от деления первого числа на второе
-        int modul = Math.Abs(number12 / number2);
-        Console.WriteLine($"Модуль целой части от деления первого числа на второе: {modul} ");
+        result = Math.Abs(number1 / number2);
+        Console.WriteLine($"Модуль целой части от деления первого числа на второе: {result} ");
     }
-    else if (number12 % 2 == 0 && number2 % 2 == 0) // если четные найти логическое битовое И, а если нечетные то ИЛИ
+    else if (number1 % 2 == 0 && number2 % 2 == 0) // если четные найти логическое битовое И, а если нечетные то ИЛИ
     {
-        int number3 = number12 & number2;
-        Console.WriteLine(Convert.ToString(number1, toBase: 2));
+        result = number1 & number2;
+        Console.WriteLine(Convert.ToString(result, toBase: 2));
     }
     else
     {
-        int number3 = number12 | number2;
-        Console.WriteLine(Convert.ToString(number1, toBase: 2));
+        result = number1 | number2;
+        Console.WriteLine(Convert.ToString(result, toBase: 2));
     }
 
     Console.WriteLine("Введите битовый сдвиг");
     int shift = Convert.ToInt32(Console.ReadLine());
-    shift = number12 % 2;
-    if (number4 = 0)
+    if (shift % 2 == 0)
     {
-
+        Console.WriteLine(result >> shift);
+    }
+    else if (shift % 2 == 1)
+    {
+        Console.WriteLine(result << shift);
     }
 }
-    
 
 

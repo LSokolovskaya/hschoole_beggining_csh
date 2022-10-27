@@ -191,12 +191,22 @@
 {// 11. Ввести строку до 5 символов, если строка число то вывести для каждой цифры в числе
  //  кратно оно двум либо нет, то есть 6352 => 6 кратно двум, 3 не кратно двум, 5  не кратно двум,
  //  2  кратно двум (if-else, тернаный оператор)
-    int? number1 = Convert.ToInt32(Console.ReadLine());
-    int? number2 = Convert.ToInt32(Console.ReadLine());
-
-
-
-
+    Console.WriteLine("Введите строку до 5 цифр ");
+    string? input1 = Convert.ToString(Console.ReadLine());
+    string thousand = "";
+    string hundred = "";
+    string desatki = "";
+    string chislo = "";
+    if (!(input1 == null) && int.TryParse(input1, out int number))
+    {
+        if (number > 999) { thousand = (number / 1000) % 2 == 0 ? "кратно двум" : "не кратно двум"; }
+        if (number > 99) { hundred = ((number % 1000) / 100) % 2 == 0 ? "кратно двум" : "не кратно двум"; }
+        if (number > 9) { desatki = ((number % 100) / 10) % 2 == 0 ? "кратно двум" : "не кратно двум"; }
+        if (number > 0) { chislo = (number % 10) % 2 == 0 ? "кратно двум" : "не кратно двум"; }
+        Console.WriteLine($"Проверка на кратность двум: {thousand} {hundred} {desatki} {chislo}");
+    }
+    else 
+    Console.WriteLine("Не удача");
 }
 
 {// 12. Ввести две строки, произвести проверку на пустоту, если строки имеют символы то если

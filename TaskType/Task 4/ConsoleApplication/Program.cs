@@ -41,7 +41,7 @@
     int dayOfTheWeek = Convert.ToInt32(Console.ReadLine());
     string? day = dayOfTheWeek switch
     {
-        0 or > 7 or < 0 => "Неверно введено число", 
+        0 or > 7 or < 0 => "Неверно введено число",
         1 => "понедельник",
         2 => "вторник",
         3 => "среда",
@@ -63,22 +63,23 @@
 // Пользователь вводит число с клавиатуры. Нужно вывести на экран сколько в этом 
 // числе цифр, а также положительное оно или отрицательное. Например, "Число " + 
 // num + " однозначное положительное". (Length)
-Console.WriteLine("Введите число ");
-string? text = Console.ReadLine();
-if (int.TryParse(text, out int value))
 {
-    int length = text?.Length ?? default;
-    Console.Write($"число {value} длинной в {length} символов ");
-    if (value > 0)
+    Console.WriteLine("Введите число ");
+    string? text = Console.ReadLine();
+    if (int.TryParse(text, out int value))
     {
-        Console.Write("Положительное ");
-    }
-    else
-    {
-        Console.Write("Отрицательное ");
+        int length = text?.Length ?? default;
+        Console.Write($"Число {value} - {length} символов ");
+        if (value > 0)
+        {
+            Console.Write("Однозначно положительное ");
+        }
+        else
+        {
+            Console.Write("Однозначно отрицательное ");
+        }
     }
 }
-
 
 
 // 6.Найти квадратный корень числа. Если же число без плавающей точки, то просто
@@ -110,6 +111,27 @@ if (int.TryParse(text, out int value))
 // 14. Пользователь вводит 2 числа от 0 до 10. Сложите переменные так, чтобы в
 // результате получилось выражение: “I’m хх". Проверки на ввод только чисел.
 // Проверки на ввод чисел до 10. Если первое число – 0, то опустить его
+{
+    Console.WriteLine("Введите первое число");
+    string? number1 = Console.ReadLine();
+    Console.WriteLine("Введите первое число");
+    string? number2 = Console.ReadLine();
+    if (int.TryParse(number1, out int number3) && int.TryParse(number2, out int number4))
+    {
+        if (number3 >= 0 && number3 >= 0 && number4 >= 0 && number4 <= 10)
+        {
+            Console.WriteLine($"I’m {number4}");
+        }
+        else
+        {
+            Console.WriteLine($"I’m {number3}{number4}");
+        }
+    }
+    else
+        {
+            Console.WriteLine("Ваше число меньше нуля или больше десяти");
+        }
+}
 
 // 15. Пользователь вводит строку. Необходимо сделать проверку, что это не число и
 // вывести длину строки
@@ -117,9 +139,9 @@ if (int.TryParse(text, out int value))
     Console.WriteLine("Задача номер 15.");
     Console.WriteLine("Введите строку ");
     string? text = Console.ReadLine();
-    if (!int.TryParse(text, out _)) // "_" игнорируем объявление переменной
+    if (!int.TryParse(text, out _))
     {
-        if (!string.IsNullOrEmpty(text)) //(text != null) "" // string.IsNullOrEmpty(text) првоеряет на пустое значение если пустое то true
+        if (!string.IsNullOrEmpty(text))
         {
             Console.WriteLine($"Длинна строки {text.Length}");
         }
@@ -134,9 +156,29 @@ if (int.TryParse(text, out int value))
     }
 }
 // 16. Пользователь вводит строку. Вывести первый символ строки (индексы)
+{
+    string? value1 = Console.ReadLine();
+    Console.WriteLine(value1[0]);
+}
 // 17.Пользователь вводит строку.Необходимо сделать проверку, что это не число и
 // вывести текущую строку в большом регистре
 // 18. Пользователь вводит строку.Необходимо повторить ее трижды
 // 19. Ввести строку. Проверить является ли это число или текст.Если число, то
 // выяснить, четное или нет.Если это текст и равен “hschool”, вывести true. В
 // противном случае false
+string? funfy = Console.ReadLine();
+int funfynumber;
+if (int.TryParse(funfy, out funfynumber))
+{
+    if (funfynumber % 2 == 0)
+    {
+        Console.WriteLine("Число Чёткое");
+    }
+    else { Console.WriteLine("Число НЕЧёткое"); }
+}
+else
+{
+    if (funfy == "hschool")
+    { Console.WriteLine(true); }
+    else { Console.WriteLine(false); }
+}
