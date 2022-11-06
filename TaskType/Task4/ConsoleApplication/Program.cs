@@ -102,7 +102,7 @@
 {
     System.Console.WriteLine("Введите число");
     string number = Console.ReadLine();
-    if (int.TryParse(number, out int number1)) 
+    if (int.TryParse(number, out int number1))
     {
         System.Console.WriteLine(Math.Sqrt(number1));
     }
@@ -150,7 +150,7 @@
     {
         System.Console.WriteLine("summer");
     }
-    else 
+    else
     {
         System.Console.WriteLine("autumn");
     }
@@ -233,7 +233,15 @@
 // 12. Напишите программу, в которой рассчитывается сумма и произведение цифр
 // положительного трёхзначного числа
 // 123 -> Сумма цифр = 6 Произведение цифр = 6
+// {
+//     System.Console.WriteLine("введите число");
+//     string number = Console.ReadLine();
+//     if(number.Length <= 3 && number > 0)
+//     {
 
+//     }
+
+// }
 
 // 13. Пользователь вводит четырехзначное число. Напишите код, который будет
 // выявлять является ли каждое составляющее числа четным либо нечетным.
@@ -297,7 +305,7 @@
 {
     System.Console.WriteLine("введите стоку");
     string text = Console.ReadLine();
-    if(int.TryParse(text, out int text1))
+    if (int.TryParse(text, out int text1))
     {
         System.Console.WriteLine("это число");
     }
