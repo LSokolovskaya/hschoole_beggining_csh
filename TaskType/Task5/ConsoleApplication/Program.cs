@@ -42,18 +42,19 @@
 }
 
 //4.Ввести строку. Проверить на isNaN. Если число, то ошибка ввода. Если это строка то узнать какая у нее длина. Привести к одному регистру, убрать лишние пробелы
-{
-    string text = Console.ReadLine();
-    string.IsNullOrEmpty(" ");///
-    if (int.TryParse(text, out int number))
-    {
-        System.Console.WriteLine("Ошибка ввода");
-    }
-    else
-    {
-        System.Console.WriteLine(text.Trim(" ").Length);
-    }
-}
+// {
+//     string text = Console.ReadLine();
+//     string.IsNullOrEmpty(" ");///
+//     if (int.TryParse(text, out int number))
+//     {
+//         System.Console.WriteLine("Ошибка ввода");
+//     }
+//     else
+//     {
+//         System.Console.WriteLine(text.Trim(" ").Length);
+//     }
+// }
+
 // ‘HTML JavaScript PHP’ преобразовать в "HTML-JAVASCRIPT-PHP"
 {
     string text = "HTML JavaScript PHP";
@@ -61,12 +62,26 @@
     System.Console.WriteLine(text.Replace(" ", "-"));
 }
 // Ввести строку. Проверить является ли это число или строка. Если число, то ошибка ввода. Если это строка то первый символ поставить в верхний регистр. Убрать лишние пробелы
-{
-    System.Console.WriteLine("введите строку");
-    string text = 
-}
-// На вход программе подаётся строка. Замените все @ на '!' с помощью глобального поиска и замены (2 способа)
+// {
+//     System.Console.WriteLine("введите строку");
+//     string text = Console.ReadLine();
+//     if ( int.TryParse(text, out int number))
+//     {
+//         System.Console.WriteLine("ошибка ввода");
+//     }
+//     else 
+//     {
 
+//         System.Console.WriteLine(text[0].ToUpper);
+//     }
+
+// }
+// На вход программе подаётся строка. Замените все @ на '!' с помощью глобального поиска и замены (2 способа)
+{
+    // System.Console.WriteLine("введите строку");
+    // string text = Console.ReadLine();
+
+}
 // Дана строка 'aaa bbb ccc'. Вырежите из нее слово 'bbb'
 {
     string text = "aaa bbb ccc";// index of
@@ -138,3 +153,7 @@
 
 // 27. На вход подается url. Если он начинается с http, содержит хотя бы один “/” и
 // заканчивается
+
+
+
+

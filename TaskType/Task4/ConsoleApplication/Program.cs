@@ -1,4 +1,5 @@
-﻿// 1.Найти максимальное число из 2 введенных (2 способа)
+﻿
+    // 1.Найти максимальное число из 2 введенных (2 способа)
 // Первый способ
 {
     Console.WriteLine("Введите первое число:");
@@ -340,4 +341,72 @@ else
     if (funfy == "hschool")
     { Console.WriteLine(true); }
     else { Console.WriteLine(false); }
+}
+
+
+// Пользователь вводит 2 числа и вводит оператор арифметический, в соответствии с ним вывести 
+{int number1 = 2;
+int number2 = 5;
+string? oper = Console.ReadLine();
+if (string.IsNullOrEmpty(oper))
+{
+    System.Console.WriteLine("Пустая строка");
+}
+else
+{
+    switch (oper)
+    {
+        case "+":
+            System.Console.WriteLine(number1 + number2);
+            break;
+        case "-":
+            System.Console.WriteLine(number1 - number2);
+            break;
+        case "*":
+            System.Console.WriteLine(number1 * number2);
+            break;
+        case "/" when number2 != 0:
+            System.Console.WriteLine(number1 / number2);
+            break;
+        case "%":
+            System.Console.WriteLine(number1 % number2);
+            break;
+        case "^":
+            System.Console.WriteLine(Math.Pow(number1, number2));
+            break;
+        default:
+            System.Console.WriteLine("Ошибка ввода");
+            break;
+    }
+}
+
+int number = new Random().Next(55, 777);
+int result = 0;
+for (int i = 1; i <= number; i++)
+{
+    if (i == 451)
+    {
+        //Выход из цикла если i имеет значение 451
+        break;
+    }
+    else if (i % 3 == 0)
+    {
+        //Переходим на новую итерацию цикла i++
+        continue;
+    }
+    
+    if (i % 4 == 0)
+    {
+        result += i / 4;
+    }
+    else if (i % 10 == 0)
+    {
+        result += i - 1;
+    }
+    else
+    {
+        result += i;
+    }
+}
+Console.WriteLine(result);
 }
