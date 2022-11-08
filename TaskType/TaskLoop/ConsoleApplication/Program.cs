@@ -115,9 +115,9 @@
     foreach (int item in items)
     {
         int difference = item % 3;
-        if(difference == 0)
+        if (difference == 0)
         {
-        System.Console.WriteLine(item);
+            System.Console.WriteLine(item);
         }
     }
 }
@@ -141,10 +141,10 @@
     int number = 1;
     while (number <= array.Length)
     {
-        if (number % 5 ==0)
+        if (number % 5 == 0)
         {
-        Console.WriteLine(number);
-        number++;
+            Console.WriteLine(number);
+            number++;
         }
     }
 }
@@ -168,7 +168,7 @@
 
 // 13. Дан массив с элементами 1, 2, 3, 4, 5, 6, 7, 8, 9. С помощью цикла for создайте строку '-1-2-3-4-5-6-7-8-9-‘
 {
-    int[] array1 = new int [9] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+    int[] array1 = new int[9] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
     for (int i = 1; i <= array1.Length; i++)
     {
         System.Console.Write($"{i}-");
@@ -218,17 +218,17 @@
 
 {
     object[] items = new object[6];
-for (int i = 0; i < items.Length; i++)
-{
-    string? text = Console.ReadLine();
-    if (int.TryParse(text, out int number))
+    for (int i = 0; i < items.Length; i++)
     {
-        items[i] = number;
+        string? text = Console.ReadLine();
+        if (int.TryParse(text, out int number))
+        {
+            items[i] = number;
+        }
+
     }
 
-}
-
-System.Console.WriteLine(string.Join(", ", items));
+    System.Console.WriteLine(string.Join(", ", items));
 }
 
 
@@ -242,21 +242,21 @@ System.Console.WriteLine(string.Join(", ", items));
 
 {
     int countIteration = 0;
-int sumNumbers = 0;
-while (sumNumbers <= 100)
-{
-    countIteration++;
-    int number = new Random().Next(1, 8);
-    if (number % 2 == 1)
-
+    int sumNumbers = 0;
+    while (sumNumbers <= 100)
     {
-        continue;
-    }
-    sumNumbers += number;
+        countIteration++;
+        int number = new Random().Next(1, 8);
+        if (number % 2 == 1)
 
-}
-System.Console.WriteLine(countIteration);
-System.Console.WriteLine(sumNumbers);
+        {
+            continue;
+        }
+        sumNumbers += number;
+
+    }
+    System.Console.WriteLine(countIteration);
+    System.Console.WriteLine(sumNumbers);
 }
 
 {
@@ -303,6 +303,18 @@ System.Console.WriteLine(sumNumbers);
     {
         result += array[i] + "/";
     }
-    result = result.Remove(result.Length -1);
+    result = result.Remove(result.Length - 1);
+    System.Console.WriteLine($"https://{result}");
+}
+{
+    string[] array = { "github.com", "HannaPleshko" };
+    string result = "";
+    int i = 0;
+    while (i < array.Length)
+    {
+        result += array[i] + "/";
+        i++;
+    }
+    result = result.Remove(result.Length - 1);
     System.Console.WriteLine($"https://{result}");
 }
