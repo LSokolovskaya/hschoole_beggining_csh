@@ -283,14 +283,14 @@
     }
 }
 
-// {
-//     string[] array = {"dfgh", "fghj", "sdfg", "gh"};
-//     string result
-//     for (int i = 0; i < array.Length; i++ )
-//     {
-//         string result += array[i];
-//     }
-// }
+{
+    string[] array = {"dfgh", "fghj", "sdfg", "gh"};
+    string result = "0";
+    for (int i = 0; i < array.Length; i++ )
+    {
+        result += array[i];
+    }
+}
 
 // сложить строки, чтобы были / и в начале добавить http//
 // { 'github.com', 'HannaPleshko' }
