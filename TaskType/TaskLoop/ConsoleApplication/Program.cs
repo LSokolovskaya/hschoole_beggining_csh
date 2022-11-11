@@ -168,8 +168,8 @@
 
 // 13. Дан массив с элементами 1, 2, 3, 4, 5, 6, 7, 8, 9. С помощью цикла for создайте строку '-1-2-3-4-5-6-7-8-9-‘
 {
-    int[] array1 = new int[9] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-    for (int i = 1; i <= array1.Length; i++)
+    int[] array = new int[9] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+    for (int i = 1; i <= array.Length; i++)
     {
         System.Console.Write($"{i}-");
     }
@@ -177,8 +177,8 @@
 
 // 14. Дано число 7, найдите все числа кратные 7 до 100
 {
-    int[] array1 = new int[100];
-    for (int i = 7; i <= array1.Length; i++)
+    int[] array = new int[100];
+    for (int i = 7; i <= array.Length; i++)
     {
         if (i % 7 == 0)
         {
@@ -208,13 +208,38 @@
 // выбранным типом данных.
 
 
-// 17. Пользователь вводит число, явдяющееся количеством элементов будущего
+// 17. Пользователь вводит число, являющееся количеством элементов будущего
 // массива. Напишите код заполнения массива. Записать в массив только числа.
 
 
 // 18. Пользователь вводит многозначное число. Необходимо вставить двоеточие
 // между двумя нечетными числами. Работать с числом как с массивом. Использовать for
 // 55639217 -> 5:563:921:7.
+{
+    string? consoleText = Console.ReadLine();
+    consoleText = consoleText?.Trim();
+    if (long.TryParse(consoleText, out _))
+    {
+        char[] arrayChars = consoleText.ToCharArray();
+        string result = arrayChars[0].ToString();
+        for (int i = 1; i < arrayChars.Length; i++)
+        {
+            int prevNumber = int.Parse(Convert.ToString(arrayChars[i - 1]));
+            int currentNumber = int.Parse(arrayChars[i].ToString());
+            // if (prevNumber % 2 == 1 && currentNumber % 2 == 1)
+            // {
+            //     result += ":";
+            // }
+            // result += arrayChars[i];
+
+
+            result += prevNumber % 2 == 1 && currentNumber % 2 == 1 ? $":{arrayChars[i]}" : arrayChars[i];
+        }
+        result += ".";
+        System.Console.WriteLine(result);
+    }
+}
+
 
 {
     object[] items = new object[6];
@@ -317,4 +342,123 @@
     }
     result = result.Remove(result.Length - 1);
     System.Console.WriteLine($"https://{result}");
+}
+{
+int number;
+string? consoleText;
+do
+{
+    Console.Write("Введите число от 1 до 10: ");
+    consoleText = Console.ReadLine();
+}
+while (!int.TryParse(consoleText, out number) || number < 1 || number > 10);
+}
+//----------------------------------------------------
+{
+    int number;
+    bool stopLoop = false;
+
+    while (!stopLoop)
+    {
+        Console.Write("Введите число от 1 до 10: ");
+        string? consoleText = Console.ReadLine();
+        stopLoop = int.TryParse(consoleText, out number) && number >= 1 && number <= 10;
+    }
+}
+//-----------развернутый do-while в while-----------------------------------------
+{
+    int number;
+
+    Console.Write("Введите число от 1 до 10: ");
+    string? consoleText = Console.ReadLine();
+
+    while (!int.TryParse(consoleText, out number) || number < 1 || number > 10)
+    {
+        Console.Write("Введите число от 1 до 10: ");
+        consoleText = Console.ReadLine();
+    }
+}
+
+
+{
+    Console.WriteLine("Задача 9");
+    string? str = Console.ReadLine();
+    string? str1 = Console.ReadLine();
+    int irt;
+    int irt1;
+    string? oper = "";
+    if (int.TryParse(str, out irt) && int.TryParse(str1, out irt1))
+    {
+        do
+        {
+            oper = Console.ReadLine();
+            if (!String.IsNullOrEmpty(oper))
+            {
+                switch (oper)
+                {
+                    case "+":
+                        Console.WriteLine(irt + irt1);
+                        break;
+                    case "-":
+                        Console.WriteLine(irt - irt1);
+                        break;
+                    case "/":
+                        Console.WriteLine(irt / irt1);
+                        break;
+                    case "*":
+                        Console.WriteLine(irt * irt1);
+                        break;
+                    case "%":
+                        Console.WriteLine(irt % irt1);
+                        break;
+                    case "!":
+                        Console.WriteLine(irt != irt1);
+                        break;
+                }
+            }
+        }
+        while (oper == "0");
+    }
+    else { Console.WriteLine("Одна из строк is not число"); }
+}
+
+
+
+{
+System.Console.WriteLine("Начало");
+string? operatorNumbers;
+do
+{
+    int number1 = new Random().Next(0, 100);
+    int number2 = new Random().Next(0, 100);
+
+    System.Console.WriteLine("Введите арифметический оператор");
+    System.Console.WriteLine("+: сумма");
+    System.Console.WriteLine("-: разность");
+    System.Console.WriteLine("*: умножение");
+    System.Console.WriteLine("/: деление");
+    System.Console.WriteLine("%: остаток от деления");
+    System.Console.WriteLine("&: бинарный оператор");
+
+    System.Console.WriteLine("0: выход");
+
+    operatorNumbers = Console.ReadLine();
+    System.Console.WriteLine($"number1 = {number1}; number2 = {number2}");
+    if (operatorNumbers == "+")
+    {
+        System.Console.WriteLine(number1 + number2);
+    }
+    else if (operatorNumbers == "&")
+    {
+        System.Console.WriteLine(number1 & number2);
+    }
+    else if (operatorNumbers == "/" && number2 != 0)
+    {
+        System.Console.WriteLine(number1 / number2);
+    }
+
+
+} while (operatorNumbers != "0"); //0 != 0 
+System.Console.WriteLine("Конец");
+//доделать!!!
 }
