@@ -62,19 +62,19 @@
     System.Console.WriteLine(text.Replace(" ", "-"));
 }
 // 6.Ввести строку. Проверить является ли это число или строка. Если число, то ошибка ввода. Если это строка то первый символ поставить в верхний регистр. Убрать лишние пробелы
-// {
-//     System.Console.WriteLine("введите строку");
-//     string text = Console.ReadLine();
-//     if (int.TryParse(text, out int number))
-//     {
-//         System.Console.WriteLine("ошибка ввода");
-//     }
-//     else
-//     {
+{
+    string? text = Console.ReadLine();
+    text = text?.Trim();
+    if (!string.IsNullOrEmpty(text) && !int.TryParse(text, out _))
+    {
+        System.Console.WriteLine(string.Concat(Convert.ToString(text[0]).ToUpper(), text.Remove(0, 1)));
+    }
+    else
+    {
+        System.Console.WriteLine("Ошибка ввода");
+    }
+}
 
-//         System.Console.WriteLine(text[0].ToUpper);
-//     }
-// }
 // 7.На вход программе подаётся строка. Замените все @ на '!' с помощью глобального поиска и замены (2 способа)
 {
     {
@@ -95,7 +95,20 @@
     string text = "aaa bbb ccc";// index of
     System.Console.WriteLine(text.IndexOf("bbb"));
 }
-// 9.На вход программе подается переменная date, в котрой лежит дата в формате 'xxxx-xx-xx'. Преобразуйте эту дату в формат 'xx/xx/xxxx’. (reverse)
+// 9.На вход программе подается переменная text, в котрой лежит дата в формате 'xxxx-xx-xx'. Преобразуйте эту дату в формат 'xx/xx/xxxx’. (reverse)
+{
+    Console.WriteLine("Введите дату xxxx-xx-xx");
+    string? text = Console.ReadLine();
+    if (!string.IsNullOrEmpty(text))
+    {
+        string[] result = text.Split("-");
+        Console.WriteLine(string.Join("/", result[1], result[2], result[0]));
+    }
+    else
+    {
+        Console.WriteLine("Ошибка ввода");
+    }
+}
 
 // 10. Дана строка из 3 слов разделенных пробелом:
 // • Найдите количество символов в этой строке.
@@ -103,19 +116,75 @@
 // • Найдите индекс 2 подстроки
 
 // 11. Пользователь вводит дату в формате ‘х-х-х'. Замените все дефисы на '!'
-
+{
+    Console.WriteLine("Введите дату x-x-x");
+    string? text = Console.ReadLine();
+    if (!string.IsNullOrEmpty(text))
+    {
+        string[] result = text.Split("-");
+        Console.WriteLine(string.Join("!", result[0], result[1], result[2]));
+    }
+    else
+    {
+        Console.WriteLine("Ошибка ввода");
+    }
+}
 // 12. Пользователь вводит дату в формате 'xxxx-xx-xx'. Преобразуйте эту дату в формат
 // 'xx.xx.xxxx'.
-
+{
+    Console.WriteLine("Введите дату x-x-x");
+    string? text = Console.ReadLine();
+    if (!string.IsNullOrEmpty(text))
+    {
+        string[] result = text.Split("-");
+        Console.WriteLine(string.Join(".", result[1], result[2], result[0]));
+    }
+    else
+    {
+        Console.WriteLine("Ошибка ввода");
+    }
+}
 // 13. Дан массив ['я', 'учу', 'javascript', '!']. С помощью метода join преобразуйте массив в
 // строку 'я+учу+javascript+!'.
+{
+    string[] array = new[] {"я", "учу", "javascript", "!"};
+    System.Console.WriteLine(string.Join("+", array));
+}
 
 // 14. Дан массив. Вывести каждый одельный элемент в консоль (for)
+{
+    Console.WriteLine("Введите строку");
+    string? text = Console.ReadLine();
+    if (!string.IsNullOrEmpty(text))
+    {
+        string[] array = text.Split(" ");
+        for (int i = 0; i < text.Length; i++)
+        {
+            Console.WriteLine(array[i]);
+        }
+    }
+    else
+    {
+        Console.WriteLine("Ошибка ввода");
+    }
+}
 
 // 15. На вход программе подается строка текста, состоящая из слов, разделенных
 // ровно одним пробелом. Напишите программу, которая подсчитывает количество
 // слов в ней
-
+{
+    string? text = Console.ReadLine();
+    if (!string.IsNullOrEmpty(text))
+    {
+        text = text.Trim();
+        string[] result = text.Split(' ');
+        Console.WriteLine(result.Length);
+    }
+    else
+    {
+        Console.WriteLine("Ошибка ввода");
+    }
+}
 // 16. Пользователь вводит строку. Необходимо посчитать количество гласных (for)
 
 // 17. Пользователь вводит строку. Необходимо посчитать количество согласных (for)
@@ -126,17 +195,17 @@
 
 // 19. На вход программе подается строка. Преобразуйте первую букву каждого слова
 // строки в верхний регистр (for)
-// {
-//     string? text = Console.ReadLine();
-//     string[] array = text?.Split(' ') ?? new string[0];
-//     for (int i = 0; i < array.Length; i++)
-//     {
-//         string result = array[i];
-//         result = Convert.ToString(char.ToUpper(result[0]));
-//         result += result.Remove(0);
-//         System.Console.Write(result);
-//     }
-// }
+{
+    string? text = Console.ReadLine();
+    string[] array = text?.Split(' ') ?? new string[0];
+    for (int i = 0; i < array.Length; i++)
+    {
+        string result = array[i];
+        result = Convert.ToString(char.ToUpper(result[0]));
+        result += result.Remove(0);
+        System.Console.Write(result);
+    }
+}
 // int number = text?.GetHashCode() ?? int.MaxValue;
 // //==  true
 // int number = text != null ? text.GetHashCode() : int.MaxValue;
@@ -203,72 +272,72 @@
     text = Convert.ToString(text.Split("."));
     System.Console.WriteLine(text);
 }
-// {
+
 
 
 
 // // 3 ввести два числа если четные то вывести сумму, если нечетные разделить первое на второе 
 // // (результат вывести с точка) если 0 то не можем провести операцию
-// {
-//     double number1 = Convert.ToInt32(Console.ReadLine());
-//     double number2 = Convert.ToInt32(Console.ReadLine());
-//     if (number2 > 0)
-//     {
-//         if (number1 % 2 == 0 && number2 % 2 == 0)
-//         {
-//             double result = number1 + number2;
-//             System.Console.WriteLine(result);
-//         }
-//         else if (number1 % 2 != 0 && number2 % 2 != 0)
-//         {
-//             double result = number1 / number2;
-//             System.Console.WriteLine(result);
-//         }
-//     }
-//     else
-//     {
-//         System.Console.WriteLine("нельзя вывести операцию");
-//     }
-// }
+{
+    double number1 = Convert.ToInt32(Console.ReadLine());
+    double number2 = Convert.ToInt32(Console.ReadLine());
+    if (number2 > 0)
+    {
+        if (number1 % 2 == 0 && number2 % 2 == 0)
+        {
+            double result = number1 + number2;
+            System.Console.WriteLine(result);
+        }
+        else if (number1 % 2 != 0 && number2 % 2 != 0)
+        {
+            double result = number1 / number2;
+            System.Console.WriteLine(result);
+        }
+    }
+    else
+    {
+        System.Console.WriteLine("нельзя вывести операцию");
+    }
+}
 
 
 // // Найти факториал числа
-// //for
-// {
-//     string? consoleText = Console.ReadLine();
-//     if (int.TryParse(consoleText, out int number) && number > 0)
-//     {
-//         int result = 1;
-//         for (int i = 1; i <= number; i++)
-//         {
-//             result *= i;
-//         }
-//         Console.WriteLine(result);
-//     }
-//     else
-//     {
-//         Console.WriteLine("Вы ввели не натуральное число");
-//     }
-// }
-// //while
-// {
-//     string? consoleText = Console.ReadLine();
-//     if (int.TryParse(consoleText, out int number) && number > 0)
-//     {
-//         int result = 1;
-//         int i = 1;
-//         while (i <= number)
-//         {
-//             result *= i;
-//             i++;
-//         }
-//         Console.WriteLine(result);
-//     }
-//     else
-//     {
-//         Console.WriteLine("Вы ввели не натуральное число");
-//     }
-// }
+//for
+{
+    string? consoleText = Console.ReadLine();
+    if (int.TryParse(consoleText, out int number) && number > 0)
+    {
+        int result = 1;
+        for (int i = 1; i <= number; i++)
+        {
+            result *= i;
+        }
+        Console.WriteLine(result);
+    }
+    else
+    {
+        Console.WriteLine("Вы ввели не натуральное число");
+    }
+}
+//while
+{
+    string? consoleText = Console.ReadLine();
+    if (int.TryParse(consoleText, out int number) && number > 0)
+    {
+        int result = 1;
+        int i = 1;
+        while (i <= number)
+        {
+            result *= i;
+            i++;
+        }
+        Console.WriteLine(result);
+    }
+    else
+    {
+        Console.WriteLine("Вы ввели не натуральное число");
+    }
+}
 
 // string text = "dfghj";
 // int number1 = Convert.ToInt32(text);
@@ -281,21 +350,22 @@
 
 
 // с клавиатуры вводится строка, которая содержит разные символы, сложить все цифры и вывести результат
-// string? text = Console.ReadLine();
-// int result = 0;
-// for (int i = 0; i < text.Length; i++)
-// {
-//     if (int.TryParse(Convert.ToString(text[i]), out int number))
-//     {
-//         result += number;
-//         // text = Convert.ToString(text.Split(""));
-//         // i += Convert.ToInt32(text[i]);
-//     }
-// }
-// System.Console.WriteLine(result);
 {
-string text = "d,fg,hj";
-System.Console.WriteLine(text.Split(",").Length);
+    string? text = Console.ReadLine();
+    int result = 0;
+    for (int i = 0; i < text.Length; i++)
+    {
+        if (int.TryParse(Convert.ToString(text[i]), out int number))
+        {
+            result += number;
+            // text = Convert.ToString(text.Split(""));
+            // i += Convert.ToInt32(text[i]);
+        }
+    }
+    System.Console.WriteLine(result);
+    //     {
+    //         string text = "d,fg,hj";
+    //         System.Console.WriteLine(text.Split(",").Length);
+    //     }
 }
-
 

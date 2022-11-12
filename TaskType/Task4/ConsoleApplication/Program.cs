@@ -1,5 +1,4 @@
-﻿
-// 1.Найти максимальное число из 2 введенных (2 способа)
+﻿// 1.Найти максимальное число из 2 введенных (2 способа)
 // Первый способ
 {
     Console.WriteLine("Введите первое число:");
@@ -58,8 +57,8 @@
 // противном случае false (Char.IsDigit(str2, position))
 {
     Console.WriteLine("Введите число");
-    string text = Console.ReadLine();
-    if (text.Length <= 3)
+    string? text = Console.ReadLine();
+    if (text?.Length <= 3)
     {
         if (int.TryParse(text, out int value))
         {
@@ -102,7 +101,7 @@
 // Добавить проверку на ввод только чисел
 {
     System.Console.WriteLine("Введите число");
-    string number = Console.ReadLine();
+    string? number = Console.ReadLine();
     if (int.TryParse(number, out int number1))
     {
         System.Console.WriteLine(Math.Sqrt(number1));
@@ -118,11 +117,11 @@
 // ними равно S км. Добавить проверку на ввод только чисел
 {
     Console.WriteLine("Введите первую скорость");
-    string speed1 = Console.ReadLine();
+    string? speed1 = Console.ReadLine();
     Console.WriteLine("Введите вторую скорость");
-    string speed2 = Console.ReadLine();
+    string? speed2 = Console.ReadLine();
     Console.WriteLine("Введите расстояние между автомобилями");
-    string distance = Console.ReadLine();
+    string? distance = Console.ReadLine();
     if (int.TryParse(speed1, out int speedFirst) && int.TryParse(speed2, out int speedSecond) && int.TryParse(distance, out int distance1))
     {
         int result = distance1 / (speedFirst + speedSecond);
@@ -155,6 +154,27 @@
     {
         System.Console.WriteLine("autumn");
     }
+}
+{
+    System.Console.WriteLine("Введите номер месяца");
+    int numberMonth = Convert.ToInt32(Console.ReadLine());
+    string? month = numberMonth switch
+    {
+        0 or > 12 or < 0 => "Неверно введено число",
+        1 => "winter",
+        2 => "winter",
+        3 => "spring",
+        4 => "spring",
+        5 => "spring",
+        6 => "summer",
+        7 => "summer",
+        8 => "summer",
+        9 => "autumn",
+        10 => "autumn",
+        11 => "autumn",
+        12 => "winter"
+    };
+    System.Console.WriteLine(month);
 }
 
 // 9.Пользователь вводит число: 1, 2, 3 или 4.Если это значение ‘2', то вывести в
@@ -193,7 +213,7 @@
 {
     {
         System.Console.WriteLine("Введите число");
-        string number = Console.ReadLine();
+        string? number = Console.ReadLine();
         if (string.IsNullOrEmpty(number))
         {
             System.Console.WriteLine("Пустая строка");
@@ -243,7 +263,7 @@
 // 100 -> 1
 {
     System.Console.WriteLine("введите длины в сантиметрах");
-    string number = Console.ReadLine();
+    string? number = Console.ReadLine();
     if (int.TryParse(number, out int number1))
     {
         int result = number1 / 100;
@@ -265,14 +285,44 @@
 // 12. Напишите программу, в которой рассчитывается сумма и произведение цифр
 // положительного трёхзначного числа
 // 123 -> Сумма цифр = 6 Произведение цифр = 6
-// {
-//     Console.WriteLine("Введите положительное трехзначное число");
-// }
+{
+    Console.WriteLine("Введите положительное трехзначное число");
+    string? text = Console.ReadLine();
+    int sum = 0;
+    int inc = 0;
+    for (int i = 0; i < text?.Length; i++)
+    {
+        if (int.TryParse(Convert.ToString(text[i]), out int number))
+        {
+            sum += number;
+            inc *= number;
+        }
+    }
+    System.Console.WriteLine($"Сумма цифр ={sum}, Произведение цифр = {inc} ");
+}
 
 // 13. Пользователь вводит четырехзначное число. Напишите код, который будет
 // выявлять является ли каждое составляющее числа четным либо нечетным.
 // Добавить проверку на ввод только чисел
 // 1234 -> 1 – неч 2 – чет 3 – неч 4 - чет
+{
+    Console.WriteLine("Введите число");
+    string? text = Console.ReadLine();
+    for (int i = 0; i < text?.Length; i++)
+    {
+        if (int.TryParse(Convert.ToString(text[i]), out int number))
+        {
+            if (number % 2 == 0)
+            {
+                System.Console.WriteLine($"{number} - четное");
+            }
+            else if (number % 2 != 0)
+            {
+                System.Console.WriteLine($"{number} - нечетное");
+            }
+        }
+    }
+}
 
 // 14. Пользователь вводит 2 числа от 0 до 10. Сложите переменные так, чтобы в
 // результате получилось выражение: “I’m хх". Проверки на ввод только чисел.
@@ -324,28 +374,27 @@
 // 16. Пользователь вводит строку. Вывести первый символ строки (индексы)
 {
     string? value1 = Console.ReadLine();
-    Console.WriteLine(value1[0]);
+    Console.WriteLine(value1?[0]);
 }
 // 17.Пользователь вводит строку.Необходимо сделать проверку, что это не число и
 // вывести текущую строку в большом регистре
 {
     System.Console.WriteLine("введите стоку");
-    string text = Console.ReadLine();
+    string? text = Console.ReadLine();
     if (int.TryParse(text, out int text1))
     {
         System.Console.WriteLine("это число");
     }
     else
     {
-        System.Console.WriteLine(text.ToUpper());
+        System.Console.WriteLine(text?.ToUpper());
     }
 }
 
 // 18. Пользователь вводит строку.Необходимо повторить ее трижды
 {
     System.Console.WriteLine("введите строку");
-    string text = Console.ReadLine();
-
+    string? text = Console.ReadLine();
 }
 
 // 19. Ввести строку. Проверить является ли это число или текст.Если число, то
