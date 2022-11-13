@@ -13,19 +13,19 @@
 }
 // 2. [1, 2, 3, 4, 5]. Выведите каждый элемент массива 3 любыми циклами
 {
-    int[] array1 = new int[5] { 1, 2, 3, 4, 5 };
-    for (int i = 0; i < array1.Length; i++)
+    int[] type1 = new int[5] { 1, 2, 3, 4, 5 };
+    for (int i = 0; i < type1.Length; i++)
     {
-        System.Console.WriteLine(array1[i]);
+        System.Console.WriteLine(type1[i]);
     }
     // while ()
-    int array = 0;
-    while (array < array1.Length)
+    int type = 0;
+    while (type < type1.Length)
     {
-        System.Console.WriteLine(array1[array++]);
+        System.Console.WriteLine(type1[type++]);
     }
 
-    foreach (int item in array1)
+    foreach (int item in type1)
     {
         System.Console.WriteLine(item);
     }
@@ -34,25 +34,25 @@
 //3. Дан массив с элементами [2, 3, 4, 5]. С помощью 3 циклов найдите произведение
 // элементов этого массива.
 {
-    int[] array = new int[4] { 2, 3, 4, 5 };
+    int[] type = new int[4] { 2, 3, 4, 5 };
     int i = 0;
     int result = 1;
-    while (i < array.Length)
+    while (i < type.Length)
     {
-        result *= array[i];
+        result *= type[i];
         i++;
     }
     Console.WriteLine(result);
 
     // ----------------------
     result = 1;
-    for (int j = 0; j < array.Length; j++)
+    for (int j = 0; j < type.Length; j++)
     {
-        result *= array[j];
+        result *= type[j];
     }
     Console.WriteLine(result);
     //------------------------
-    foreach (int item in array)
+    foreach (int item in type)
     {
         result *= item;
     }
@@ -77,8 +77,8 @@
 
 // 5. Выведите столбец четных чисел в промежутке от 0 до 100 (for)
 {
-    int[] array1 = new int[101];
-    for (int i = 0; i <= array1.Length; i++)
+    int[] type1 = new int[101];
+    for (int i = 0; i <= type1.Length; i++)
     {
         System.Console.WriteLine(i);
     }
@@ -98,9 +98,9 @@
 // 7. Дан массив с элементами [1, 2, 3, 4, 5]. С помощью цикла for of найдите сумму
 // элементов этого массива
 {
-    int[] array1 = new int[5] { 1, 2, 3, 4, 5 };
+    int[] type1 = new int[5] { 1, 2, 3, 4, 5 };
     int difference = 0;
-    for (int i = 0; i <= array1.Length; i++)
+    for (int i = 0; i <= type1.Length; i++)
     {
         System.Console.WriteLine(difference += i);
     }
@@ -122,8 +122,8 @@
 // 9. Дан массив с элементами [1, 2, 2, 3, 4, 4, 3, 4, 5]. Выведите только уникальные
 // значения массива -> [1, 5] (for)
 {
-    int[] array = new int[9] { 1, 2, 2, 3, 4, 4, 3, 4, 5 };
-    for (int i = 0; i <= array.Length; i++)
+    int[] type = new int[9] { 1, 2, 2, 3, 4, 4, 3, 4, 5 };
+    for (int i = 0; i <= type.Length; i++)
     {
         if (i == 1 || i == 5)
         {
@@ -134,9 +134,9 @@
 
 // 10. Дан массив 2, 5, 9, 15, 0, 4. Выведите все числа кратные 5 циклом while
 {
-    int[] array = new int[6] { 2, 5, 9, 15, 0, 4 };
+    int[] type = new int[6] { 2, 5, 9, 15, 0, 4 };
     int number = 1;
-    while (number <= array.Length)
+    while (number <= type.Length)
     {
         if (number % 5 == 0)
         {
@@ -181,8 +181,8 @@
 // 12. Дан массив числами, например: [10, 20, 30, 50, 235, 3000]. Выведите на экран только
 // те числа из массива, которые начинаются на цифру 1, 2 или 5 -> 10, 20, 50, 235
 {
-    int[] array = new int[] { 10, 20, 30, 50, 235, 3000 };
-    foreach (int number in array)
+    int[] type = new int[] { 10, 20, 30, 50, 235, 3000 };
+    foreach (int number in type)
     {
         string result = Convert.ToString(number);
         if (result.StartsWith('1') || result.StartsWith('2') || result.StartsWith('5'))
@@ -195,8 +195,8 @@
 
 // 13. Дан массив с элементами 1, 2, 3, 4, 5, 6, 7, 8, 9. С помощью цикла for создайте строку '-1-2-3-4-5-6-7-8-9-‘
 {
-    int[] array = new int[9] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-    for (int i = 1; i <= array.Length; i++)
+    int[] type = new int[9] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+    for (int i = 1; i <= type.Length; i++)
     {
         System.Console.Write($"{i}-");
     }
@@ -204,8 +204,8 @@
 
 // 14. Дано число 7, найдите все числа кратные 7 до 100
 {
-    int[] array = new int[100];
-    for (int i = 7; i <= array.Length; i++)
+    int[] type = new int[100];
+    for (int i = 7; i <= type.Length; i++)
     {
         if (i % 7 == 0)
         {
@@ -240,14 +240,64 @@
 // массива и выбирает тип данных массива. Напишите код заполнения массива
 // выбранным типом данных.
 
+{
+    System.Console.WriteLine("Введите длинну массива");
+    int number = Convert.ToInt32(Console.ReadLine());
+    System.Console.WriteLine("Введите тип массива");
+    string? type = Console.ReadLine();
+    if (!string.IsNullOrEmpty(type))
+    {
+        int[] indexInt = new int[number];
+        string[] indexString = new string[number];
+        char[] indexChar = new char[number];
+        double[] indexDouble = new double[number];
+        int i = 0;
+        if (type == "string")
+        {
+            for (i = 0; i < number; i++)
+            {
+                indexString[i] += "text";
+            }
+            Console.WriteLine(string.Join(", ", indexString));
+        }
+        else if (type == "int")
+        {
+            for (i = 0; i < number; i++)
+            {
+                indexInt[i] += 1;
+            }
+            Console.WriteLine(string.Join(", ", indexInt));
+        }
+        else if (type == "char")
+        {
+            for (i = 0; i < number; i++)
+            {
+                indexChar[i] += '1';
+            }
+            Console.WriteLine(string.Join(", ", indexChar));
+        }
+        else if (type == "double")
+        {
+            for (i = 0; i < number; i++)
+            {
+                indexDouble[i] += 1.0;
+            }
+            Console.WriteLine(string.Join(", ", indexDouble));
+        }
+        else
+        {
+            Console.WriteLine("Ошибка ввода");
+        }
+    }
+}
 
 // 17. Пользователь вводит число, являющееся количеством элементов будущего
 // массива. Напишите код заполнения массива. Записать в массив только числа.
 {
-    int array = Convert.ToInt32(Console.ReadLine());
+    int type = Convert.ToInt32(Console.ReadLine());
     int i = 0;
     int[] number = new int[i];
-    while (i < array)
+    while (i < type)
     {
         number[i] += new Random().Next(0, 100);
         i++;
@@ -303,10 +353,10 @@
 
 
 // // {
-// //   difference -= items[array++] is int number ? number : default;
+// //   difference -= items[type++] is int number ? number : default;
 // // -----------------------------------равнозначно---------------------------
-// // difference -= items[array] is int number ? number : default;
-// // array++;
+// // difference -= items[type] is int number ? number : default;
+// // type++;
 // // }
 
 {
@@ -342,22 +392,22 @@
             numbers[i] += 10;
         }
         System.Console.WriteLine(string.Join(" , ", numbers));
-        int array = 0;
-        while (array < numbers.Length)
+        int type = 0;
+        while (type < numbers.Length)
         {
-            numbers[array] = numbers[array] % 2 == 0 ? numbers[array] /= 2 : numbers[array] += 10;
-            array++;
+            numbers[type] = numbers[type] % 2 == 0 ? numbers[type] /= 2 : numbers[type] += 10;
+            type++;
         }
         System.Console.WriteLine(string.Join(" , ", numbers));
     }
 }
 
 {
-    string[] array = { "dfgh", "fghj", "sdfg", "gh" };
+    string[] type = { "dfgh", "fghj", "sdfg", "gh" };
     string result = "0";
-    for (int i = 0; i < array.Length; i++)
+    for (int i = 0; i < type.Length; i++)
     {
-        result += array[i];
+        result += type[i];
     }
 }
 
@@ -366,22 +416,22 @@
 // github.com/HannaPleshko
 // https://
 {
-    string[] array = { "github.com", "HannaPleshko" };
+    string[] type = { "github.com", "HannaPleshko" };
     string result = "";
-    for (int i = 0; i < array.Length; i++)
+    for (int i = 0; i < type.Length; i++)
     {
-        result += array[i] + "/";
+        result += type[i] + "/";
     }
     result = result.Remove(result.Length - 1);
     System.Console.WriteLine($"https://{result}");
 }
 {
-    string[] array = { "github.com", "HannaPleshko" };
+    string[] type = { "github.com", "HannaPleshko" };
     string result = "";
     int i = 0;
-    while (i < array.Length)
+    while (i < type.Length)
     {
-        result += array[i] + "/";
+        result += type[i] + "/";
         i++;
     }
     result = result.Remove(result.Length - 1);
@@ -389,13 +439,13 @@
 }
 {
     int number;
-    string? consoleText;
+    string? text;
     do
     {
         System.Console.Write("Введите число от 1 до 10: ");
-        consoleText = Console.ReadLine();
+        text = Console.ReadLine();
     }
-    while (!int.TryParse(consoleText, out number) || number < 1 || number > 10);
+    while (!int.TryParse(text, out number) || number < 1 || number > 10);
 }
 //----------------------------------------------------
 {
@@ -405,8 +455,8 @@
     while (!stopnumber)
     {
         System.Console.Write("Введите число от 1 до 10: ");
-        string? consoleText = Console.ReadLine();
-        stopnumber = int.TryParse(consoleText, out number) && number >= 1 && number <= 10;
+        string? text = Console.ReadLine();
+        stopnumber = int.TryParse(text, out number) && number >= 1 && number <= 10;
     }
 }
 //-----------развернутый do-while в while-----------------------------------------
@@ -414,12 +464,12 @@
     int number;
 
     System.Console.Write("Введите число от 1 до 10: ");
-    string? consoleText = Console.ReadLine();
+    string? text = Console.ReadLine();
 
-    while (!int.TryParse(consoleText, out number) || number < 1 || number > 10)
+    while (!int.TryParse(text, out number) || number < 1 || number > 10)
     {
         System.Console.Write("Введите число от 1 до 10: ");
-        consoleText = Console.ReadLine();
+        text = Console.ReadLine();
     }
 }
 
