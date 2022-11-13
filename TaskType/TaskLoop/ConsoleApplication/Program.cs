@@ -1,7 +1,4 @@
-﻿// Невыполненные задачи - ////////////////////////////////////(после них), но попытки были
-
-
-{//задача 1
+﻿{//задача 1
     int number = 0;
     for (int i = 0; i <= 50; i++)
     {
@@ -22,10 +19,10 @@
         System.Console.WriteLine(array1[i]);
     }
     // while ()
-    int index = 0;
-    while (index < array1.Length)
+    int array = 0;
+    while (array < array1.Length)
     {
-        System.Console.WriteLine(array1[index++]);
+        System.Console.WriteLine(array1[array++]);
     }
 
     foreach (int item in array1)
@@ -148,7 +145,6 @@
         }
     }
 }
-///////////////////////////////////////////////
 
 // Пример из презентации
 // int number = 2;
@@ -161,9 +157,40 @@
 
 // 11. Дан массив с числами. Числа могут быть положительными и отрицательными.
 // Найдите сумму всех положительных элементов массива циклом foreach in
+{
+    string? text = Console.ReadLine();
+    int result = 0;
+    if (!string.IsNullOrEmpty(text))
+    {
+        string[] number = text.Split(" ");
+        foreach (string i in number)
+        {
+            if (int.TryParse(i, out int numbers))
+            {
+                System.Console.WriteLine(numbers);
+                if (numbers > 0)
+                {
+                    result += numbers;
+                }
+            }
+        }
+    }
+    System.Console.WriteLine(result);
+}
 
 // 12. Дан массив числами, например: [10, 20, 30, 50, 235, 3000]. Выведите на экран только
 // те числа из массива, которые начинаются на цифру 1, 2 или 5 -> 10, 20, 50, 235
+{
+    int[] array = new int[] { 10, 20, 30, 50, 235, 3000 };
+    foreach (int number in array)
+    {
+        string result = Convert.ToString(number);
+        if (result.StartsWith('1') || result.StartsWith('2') || result.StartsWith('5'))
+        {
+            System.Console.Write($"{result} ");
+        }
+    }
+}
 
 
 // 13. Дан массив с элементами 1, 2, 3, 4, 5, 6, 7, 8, 9. С помощью цикла for создайте строку '-1-2-3-4-5-6-7-8-9-‘
@@ -189,7 +216,14 @@
 
 // 15. Дано предложение и количество раз которое его надо повторить. Напишите
 // программу, которая повторяет данное предложение нужное количество раз.
-
+{
+    string? text = Convert.ToString(Console.ReadLine());
+    int number = Convert.ToInt32(Console.ReadLine());
+    for (int i = 1; i <= number; i++)
+    {
+        System.Console.WriteLine(text);
+    }
+}
 
 
 // пример из презентации(do while)
@@ -201,7 +235,6 @@
 //     text = Console.ReadLine();
 // }
 // while ();
-////////////////////////////////////////////////////////////////////
 
 // 16. Пользователь вводит число, являющееся количеством элементов будущего
 // массива и выбирает тип данных массива. Напишите код заполнения массива
@@ -210,6 +243,17 @@
 
 // 17. Пользователь вводит число, являющееся количеством элементов будущего
 // массива. Напишите код заполнения массива. Записать в массив только числа.
+{
+    int array = Convert.ToInt32(Console.ReadLine());
+    int i = 0;
+    int[] number = new int[i];
+    while (i < array)
+    {
+        number[i] += new Random().Next(0, 100);
+        i++;
+    }
+    System.Console.WriteLine(string.Join(", ", number));
+}
 
 
 // 18. Пользователь вводит многозначное число. Необходимо вставить двоеточие
@@ -259,10 +303,10 @@
 
 
 // // {
-// //   difference -= items[index++] is int number ? number : default;
+// //   difference -= items[array++] is int number ? number : default;
 // // -----------------------------------равнозначно---------------------------
-// // difference -= items[index] is int number ? number : default;
-// // index++;
+// // difference -= items[array] is int number ? number : default;
+// // array++;
 // // }
 
 {
@@ -298,20 +342,20 @@
             numbers[i] += 10;
         }
         System.Console.WriteLine(string.Join(" , ", numbers));
-        int index = 0;
-        while (index < numbers.Length)
+        int array = 0;
+        while (array < numbers.Length)
         {
-            numbers[index] = numbers[index] % 2 == 0 ? numbers[index] /= 2 : numbers[index] += 10;
-            index++;
+            numbers[array] = numbers[array] % 2 == 0 ? numbers[array] /= 2 : numbers[array] += 10;
+            array++;
         }
         System.Console.WriteLine(string.Join(" , ", numbers));
     }
 }
 
 {
-    string[] array = {"dfgh", "fghj", "sdfg", "gh"};
+    string[] array = { "dfgh", "fghj", "sdfg", "gh" };
     string result = "0";
-    for (int i = 0; i < array.Length; i++ )
+    for (int i = 0; i < array.Length; i++)
     {
         result += array[i];
     }
@@ -344,37 +388,37 @@
     System.Console.WriteLine($"https://{result}");
 }
 {
-int number;
-string? consoleText;
-do
-{
-    Console.Write("Введите число от 1 до 10: ");
-    consoleText = Console.ReadLine();
-}
-while (!int.TryParse(consoleText, out number) || number < 1 || number > 10);
+    int number;
+    string? consoleText;
+    do
+    {
+        System.Console.Write("Введите число от 1 до 10: ");
+        consoleText = Console.ReadLine();
+    }
+    while (!int.TryParse(consoleText, out number) || number < 1 || number > 10);
 }
 //----------------------------------------------------
 {
     int number;
-    bool stopLoop = false;
+    bool stopnumber = false;
 
-    while (!stopLoop)
+    while (!stopnumber)
     {
-        Console.Write("Введите число от 1 до 10: ");
+        System.Console.Write("Введите число от 1 до 10: ");
         string? consoleText = Console.ReadLine();
-        stopLoop = int.TryParse(consoleText, out number) && number >= 1 && number <= 10;
+        stopnumber = int.TryParse(consoleText, out number) && number >= 1 && number <= 10;
     }
 }
 //-----------развернутый do-while в while-----------------------------------------
 {
     int number;
 
-    Console.Write("Введите число от 1 до 10: ");
+    System.Console.Write("Введите число от 1 до 10: ");
     string? consoleText = Console.ReadLine();
 
     while (!int.TryParse(consoleText, out number) || number < 1 || number > 10)
     {
-        Console.Write("Введите число от 1 до 10: ");
+        System.Console.Write("Введите число от 1 до 10: ");
         consoleText = Console.ReadLine();
     }
 }
@@ -425,40 +469,40 @@ while (!int.TryParse(consoleText, out number) || number < 1 || number > 10);
 
 
 {
-System.Console.WriteLine("Начало");
-string? operatorNumbers;
-do
-{
-    int number1 = new Random().Next(0, 100);
-    int number2 = new Random().Next(0, 100);
-
-    System.Console.WriteLine("Введите арифметический оператор");
-    System.Console.WriteLine("+: сумма");
-    System.Console.WriteLine("-: разность");
-    System.Console.WriteLine("*: умножение");
-    System.Console.WriteLine("/: деление");
-    System.Console.WriteLine("%: остаток от деления");
-    System.Console.WriteLine("&: бинарный оператор");
-
-    System.Console.WriteLine("0: выход");
-
-    operatorNumbers = Console.ReadLine();
-    System.Console.WriteLine($"number1 = {number1}; number2 = {number2}");
-    if (operatorNumbers == "+")
+    System.Console.WriteLine("Начало");
+    string? operatorNumbers;
+    do
     {
-        System.Console.WriteLine(number1 + number2);
-    }
-    else if (operatorNumbers == "&")
-    {
-        System.Console.WriteLine(number1 & number2);
-    }
-    else if (operatorNumbers == "/" && number2 != 0)
-    {
-        System.Console.WriteLine(number1 / number2);
-    }
+        int number1 = new Random().Next(0, 100);
+        int number2 = new Random().Next(0, 100);
+
+        System.Console.WriteLine("Введите арифметический оператор");
+        System.Console.WriteLine("+: сумма");
+        System.Console.WriteLine("-: разность");
+        System.Console.WriteLine("*: умножение");
+        System.Console.WriteLine("/: деление");
+        System.Console.WriteLine("%: остаток от деления");
+        System.Console.WriteLine("&: бинарный оператор");
+
+        System.Console.WriteLine("0: выход");
+
+        operatorNumbers = Console.ReadLine();
+        System.Console.WriteLine($"number1 = {number1}; number2 = {number2}");
+        if (operatorNumbers == "+")
+        {
+            System.Console.WriteLine(number1 + number2);
+        }
+        else if (operatorNumbers == "&")
+        {
+            System.Console.WriteLine(number1 & number2);
+        }
+        else if (operatorNumbers == "/" && number2 != 0)
+        {
+            System.Console.WriteLine(number1 / number2);
+        }
 
 
-} while (operatorNumbers != "0"); //0 != 0 
-System.Console.WriteLine("Конец");
-//доделать!!!
+    } while (operatorNumbers != "0"); //0 != 0 
+    System.Console.WriteLine("Конец");
+    //доделать!!!
 }
