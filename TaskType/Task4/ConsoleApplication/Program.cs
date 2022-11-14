@@ -289,16 +289,23 @@
     Console.WriteLine("Введите положительное трехзначное число");
     string? text = Console.ReadLine();
     int sum = 0;
-    int inc = 0;
-    for (int i = 0; i < text?.Length; i++)
+    int inc = 1;
+    if (text?.Length <= 3 && Convert.ToInt32(text) > 0)
     {
-        if (int.TryParse(Convert.ToString(text[i]), out int number))
+        for (int i = 0; i < text?.Length; i++)
         {
-            sum += number;
-            inc *= number;
+            if (int.TryParse(Convert.ToString(text[i]), out int number))
+            {
+                sum += number;
+                inc *= number;
+            }
         }
+        System.Console.WriteLine($"Сумма цифр ={sum}, Произведение цифр = {inc} ");
     }
-    System.Console.WriteLine($"Сумма цифр ={sum}, Произведение цифр = {inc} ");
+    else
+    {
+        System.Console.WriteLine("error");
+    }
 }
 
 // 13. Пользователь вводит четырехзначное число. Напишите код, который будет
