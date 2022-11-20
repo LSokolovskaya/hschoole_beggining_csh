@@ -277,7 +277,7 @@ int number2;
 
 if (item2 is int number )
 {
-    number2 = number;
+    number2 = number; 
 }
 else
 {

@@ -31,26 +31,53 @@
     string result = number == 0 ? " число чётное" : " число нечётное";
     Console.WriteLine(result);
 }
+//второй способ
+{
+    Console.WriteLine("Введите число:");
+    int number = Convert.ToInt32(Console.ReadLine());
+    if (!string.IsNullOrEmpty(Convert.ToString(number)))
+    {
+        if (number % 2 == 0)
+        {
+            System.Console.WriteLine(" число чётное");
+        }
+        else
+        {
+            System.Console.WriteLine(" число нечётное");
+        }
+    }
+    else
+    {
+        System.Console.WriteLine("Пусто");
+    }
+}
 
 
 // 3. Пользователь вводит число от 1 до 7, соответствующее дню недели. Необходимо
 // вывести день для введенного числа.
-
 {
     Console.WriteLine("Введите число от 1 до 7 :");
     int dayOfTheWeek = Convert.ToInt32(Console.ReadLine());
-    string? day = dayOfTheWeek switch
+    if (!string.IsNullOrEmpty(Convert.ToString(dayOfTheWeek)))
     {
-        0 or > 7 or < 0 => "Неверно введено число",
-        1 => "понедельник",
-        2 => "вторник",
-        3 => "среда",
-        4 => "четверг",
-        5 => "пятница",
-        6 => "суббота",
-        7 => "воскресенье"
-    };
-    System.Console.WriteLine(day);
+        string? day = dayOfTheWeek
+        switch
+        {
+            0 or > 7 or < 0 => "Неверно введено число",
+            1 => "понедельник",
+            2 => "вторник",
+            3 => "среда",
+            4 => "четверг",
+            5 => "пятница",
+            6 => "суббота",
+            7 => "воскресенье"
+        };
+        System.Console.WriteLine(day);
+    }
+    else
+    {
+        System.Console.WriteLine("Пусто");
+    }
 }
 
 // 4. Есть строка в 3 символа. Написать проверку если число, вывести true, в
@@ -58,40 +85,53 @@
 {
     Console.WriteLine("Введите число");
     string? text = Console.ReadLine();
-    if (text?.Length <= 3)
+    if (!string.IsNullOrEmpty(text))
     {
-        if (int.TryParse(text, out int value))
+        if (text?.Length <= 3)
         {
-            Console.WriteLine("true");
+            if (int.TryParse(text, out int value))
+            {
+                Console.WriteLine("true");
+            }
+            else
+            {
+                Console.WriteLine("false");
+            }
         }
         else
         {
-            Console.WriteLine("false");
+            System.Console.WriteLine("Слишком большое число, попробуйте ввести трехзначное");
         }
     }
     else
     {
-        System.Console.WriteLine("Слишком большое число, попробуйте ввести трехзначное");
+        System.Console.WriteLine("Пусто...");
     }
 }
-// Пользователь вводит число с клавиатуры. Нужно вывести на экран сколько в этом 
+// 5 Пользователь вводит число с клавиатуры. Нужно вывести на экран сколько в этом 
 // числе цифр, а также положительное оно или отрицательное. Например, "Число " + 
 // num + " однозначное положительное". (Length)
 {
     Console.WriteLine("Введите число ");
     string? text = Console.ReadLine();
-    if (int.TryParse(text, out int value))
+    int length = text?.Length ?? default;
+    if (!string.IsNullOrEmpty(Convert.ToString(text)))
     {
-        int length = text?.Length ?? default;
-        Console.Write($"Число {value} - {length} символов ");
-        if (value > 0)
+        if (int.TryParse(text, out int value))
         {
-            Console.Write("Однозначно положительное ");
+            if (value > 0)
+            {
+                Console.Write($"Число {value} - {length} символов. Однозначно положительное ");
+            }
+            else
+            {
+                Console.Write($"Число {value} - {length} символов. Однозначно отрицательное ");
+            }
         }
-        else
-        {
-            Console.Write("Однозначно отрицательное ");
-        }
+    }
+    else
+    {
+        System.Console.WriteLine("Пусто...");
     }
 }
 
@@ -102,13 +142,20 @@
 {
     System.Console.WriteLine("Введите число");
     string? number = Console.ReadLine();
-    if (int.TryParse(number, out int number1))
+    if (!string.IsNullOrEmpty(number))
     {
-        System.Console.WriteLine(Math.Sqrt(number1));
+        if (int.TryParse(number, out int number1))
+        {
+            System.Console.WriteLine(Math.Sqrt(number1));
+        }
+        else
+        {
+            System.Console.WriteLine("Вы ввели не число");
+        }
     }
     else
     {
-        System.Console.WriteLine("Вы ввели не число");
+        System.Console.WriteLine("Пусто...");
     }
 }
 
@@ -122,14 +169,21 @@
     string? speed2 = Console.ReadLine();
     Console.WriteLine("Введите расстояние между автомобилями");
     string? distance = Console.ReadLine();
-    if (int.TryParse(speed1, out int speedFirst) && int.TryParse(speed2, out int speedSecond) && int.TryParse(distance, out int distance1))
+    if (!string.IsNullOrEmpty(speed1) && !string.IsNullOrEmpty(speed2) && !string.IsNullOrEmpty(distance))
     {
-        int result = distance1 / (speedFirst + speedSecond);
-        System.Console.WriteLine($"{result} ч`");
+        if (int.TryParse(speed1, out int speedFirst) && int.TryParse(speed2, out int speedSecond) && int.TryParse(distance, out int distance1))
+        {
+            int result = distance1 / (speedFirst + speedSecond);
+            System.Console.WriteLine($"{result} ч`");
+        }
+        else
+        {
+            System.Console.WriteLine("Не число");
+        }
     }
     else
     {
-        System.Console.WriteLine("Не число");
+        System.Console.WriteLine("Пусто...");
     }
 }
 
@@ -138,23 +192,32 @@
 {
     System.Console.WriteLine("Введите номер месяца");
     int numberMonth = Convert.ToInt32(Console.ReadLine());
-    if (numberMonth == 1 || numberMonth == 2 || numberMonth == 12)
+    if (!string.IsNullOrEmpty(Convert.ToString(numberMonth)))
     {
-        System.Console.WriteLine("winter");
-    }
-    else if ((numberMonth == 3 || numberMonth == 4 || numberMonth == 5))
-    {
-        System.Console.WriteLine("spring");
-    }
-    else if ((numberMonth == 6 || numberMonth == 7 || numberMonth == 8))
-    {
-        System.Console.WriteLine("summer");
+        if (numberMonth == 1 || numberMonth == 2 || numberMonth == 12)
+        {
+            System.Console.WriteLine("winter");
+        }
+        else if ((numberMonth == 3 || numberMonth == 4 || numberMonth == 5))
+        {
+            System.Console.WriteLine("spring");
+        }
+        else if ((numberMonth == 6 || numberMonth == 7 || numberMonth == 8))
+        {
+            System.Console.WriteLine("summer");
+        }
+        else
+        {
+            System.Console.WriteLine("autumn");
+        }
+
     }
     else
     {
-        System.Console.WriteLine("autumn");
+        System.Console.WriteLine("Пусто...");
     }
 }
+
 {
     System.Console.WriteLine("Введите номер месяца");
     int numberMonth = Convert.ToInt32(Console.ReadLine());
@@ -182,32 +245,39 @@
 {
     System.Console.WriteLine("Введите число");
     int number = Convert.ToInt32(Console.ReadLine());
-    if (number <= 4 || number >= 0)
+    if (string.IsNullOrEmpty(Convert.ToString(number)))
     {
-        if (number == 1)
+        if (number <= 4 || number >= 0)
         {
-            System.Console.WriteLine("");
-        }
-        else if (number == 2)
-        {
-            System.Console.WriteLine("зима близко");
-        }
-        else if (number == 3)
-        {
-            System.Console.WriteLine("зима");
-        }
-        else if (number == 4)
-        {
-            System.Console.WriteLine("всё");
+            if (number == 1)
+            {
+                System.Console.WriteLine("");
+            }
+            else if (number == 2)
+            {
+                System.Console.WriteLine("зима близко");
+            }
+            else if (number == 3)
+            {
+                System.Console.WriteLine("зима");
+            }
+            else if (number == 4)
+            {
+                System.Console.WriteLine("всё");
+            }
+            else
+            {
+                System.Console.WriteLine();
+            }
         }
         else
         {
-            System.Console.WriteLine();
+            System.Console.WriteLine("Вы ввели неверное число");
         }
     }
     else
     {
-        System.Console.WriteLine("Вы ввели неверное число");
+        System.Console.WriteLine("Пусто...");
     }
 }
 {
@@ -240,6 +310,9 @@
             }
         }
     }
+}
+{
+    
 }
 // 10. Пользователь вводит одно число. Необходимо вывести обратное ему (число
 // является обратным при 1/x). Если при этом введённое с клавиатуры число – ноль,
