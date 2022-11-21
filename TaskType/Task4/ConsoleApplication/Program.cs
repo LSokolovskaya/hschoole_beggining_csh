@@ -553,26 +553,62 @@
 {
     System.Console.WriteLine("введите строку");
     string? text = Console.ReadLine();
+    if (!string.IsNullOrEmpty(text))
+    {
+        System.Console.WriteLine(text, text, text);
+    }
+    else
+    {
+        System.Console.WriteLine("error");
+    }
 }
 
 // 19. Ввести строку. Проверить является ли это число или текст.Если число, то
 // выяснить, четное или нет.Если это текст и равен “hschool”, вывести true. В
 // противном случае false
-string? funfy = Console.ReadLine();
-int funfynumber;
-if (int.TryParse(funfy, out funfynumber))
 {
-    if (funfynumber % 2 == 0)
+    string? funfy = Console.ReadLine();
+    int funfynumber;
+    if (!string.IsNullOrEmpty(funfy))
     {
-        Console.WriteLine("Число Чёткое");
+        if (int.TryParse(funfy, out funfynumber))
+        {
+            if (funfynumber % 2 == 0)
+            {
+                Console.WriteLine("Число Чёткое");
+            }
+            else { Console.WriteLine("Число НЕЧёткое"); }
+        }
+        else
+        {
+            if (funfy == "hschool")
+            { Console.WriteLine(true); }
+            else { Console.WriteLine(false); }
+        }
     }
-    else { Console.WriteLine("Число НЕЧёткое"); }
+    else
+    {
+        System.Console.WriteLine("error");
+    }
 }
-else
 {
-    if (funfy == "hschool")
-    { Console.WriteLine(true); }
-    else { Console.WriteLine(false); }
+    string? funfy = Console.ReadLine();
+    int funfynumber;
+    if (!string.IsNullOrEmpty(funfy))
+    {
+        if (int.TryParse(funfy, out funfynumber))
+        {
+            var result = funfynumber % 2 == 0 ? "Число Чёткое" : "Число НЕЧёткое";
+        }
+        else
+        {
+            var result = funfy == "hschool" ? true : false;
+        }
+    }
+    else
+    {
+        System.Console.WriteLine("error");
+    }
 }
 
 
