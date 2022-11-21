@@ -221,23 +221,30 @@
 {
     System.Console.WriteLine("Введите номер месяца");
     int numberMonth = Convert.ToInt32(Console.ReadLine());
-    string? month = numberMonth switch
+    if (string.IsNullOrEmpty(Convert.ToString(numberMonth)))
     {
-        0 or > 12 or < 0 => "Неверно введено число",
-        1 => "winter",
-        2 => "winter",
-        3 => "spring",
-        4 => "spring",
-        5 => "spring",
-        6 => "summer",
-        7 => "summer",
-        8 => "summer",
-        9 => "autumn",
-        10 => "autumn",
-        11 => "autumn",
-        12 => "winter"
-    };
-    System.Console.WriteLine(month);
+        string? month = numberMonth switch
+        {
+            0 or > 12 or < 0 => "Неверно введено число",
+            1 => "winter",
+            2 => "winter",
+            3 => "spring",
+            4 => "spring",
+            5 => "spring",
+            6 => "summer",
+            7 => "summer",
+            8 => "summer",
+            9 => "autumn",
+            10 => "autumn",
+            11 => "autumn",
+            12 => "winter"
+        };
+        System.Console.WriteLine(month);
+    }
+    else
+    {
+        System.Console.WriteLine("Пусто...");
+    }
 }
 
 // 9.Пользователь вводит число: 1, 2, 3 или 4.Если это значение ‘2', то вывести в
@@ -245,7 +252,7 @@
 {
     System.Console.WriteLine("Введите число");
     int number = Convert.ToInt32(Console.ReadLine());
-    if (string.IsNullOrEmpty(Convert.ToString(number)))
+    if (!string.IsNullOrEmpty(Convert.ToString(number)))
     {
         if (number <= 4 || number >= 0)
         {
@@ -312,21 +319,44 @@
     }
 }
 {
-    
+    System.Console.WriteLine("Введите число");
+    int? number = Convert.ToInt32(Console.ReadLine());
+    if (string.IsNullOrEmpty(Convert.ToString(number)))
+    {
+        System.Console.WriteLine("Пусто...");
+    }
+    else
+    {
+        string result = number switch
+        {
+            1 => "Ничего",
+            2 => "Зима близко",
+            3 => "Зима",
+            4 => "Все",
+            > 4 or < 0 => "Неверно введено число"
+        };
+    }
 }
 // 10. Пользователь вводит одно число. Необходимо вывести обратное ему (число
 // является обратным при 1/x). Если при этом введённое с клавиатуры число – ноль,
 // то вывести «Обратного числа не существует».
 {
-    System.Console.WriteLine("Введите число от 1 до 4");
+    System.Console.WriteLine("Введите число");
     double number = Convert.ToDouble(Console.ReadLine());
-    if (number > 0)
+    if (!string.IsNullOrEmpty(Convert.ToString(number)))
     {
-        System.Console.WriteLine(1 / number);
+        if (number > 0)
+        {
+            System.Console.WriteLine(1 / number);
+        }
+        else if (number == 0)
+        {
+            System.Console.WriteLine("Обратного числа не существует");
+        }
     }
-    else if (number == 0)
+    else
     {
-        System.Console.WriteLine("Обратного числа не существует");
+        System.Console.WriteLine("Пусто");
     }
 }
 
@@ -337,21 +367,28 @@
 {
     System.Console.WriteLine("введите длины в сантиметрах");
     string? number = Console.ReadLine();
-    if (int.TryParse(number, out int number1))
+    if (!string.IsNullOrEmpty(number))
     {
-        int result = number1 / 100;
-        if (result < 1)
+        if (int.TryParse(number, out int number1))
         {
-            System.Console.WriteLine("меньше метра");
+            int result = number1 / 100;
+            if (result < 1)
+            {
+                System.Console.WriteLine("меньше метра");
+            }
+            else
+            {
+                System.Console.WriteLine(result);
+            }
         }
         else
         {
-            System.Console.WriteLine(result);
+            System.Console.WriteLine("вы ввели не число");
         }
     }
     else
     {
-        System.Console.WriteLine("вы ввели не число");
+        System.Console.WriteLine("Пусто");
     }
 }
 
@@ -363,17 +400,24 @@
     string? text = Console.ReadLine();
     int sum = 0;
     int inc = 1;
-    if (text?.Length <= 3 && Convert.ToInt32(text) > 0)
+    if (!string.IsNullOrEmpty(text))
     {
-        for (int i = 0; i < text?.Length; i++)
+        if (text?.Length <= 3 && Convert.ToInt32(text) > 0)
         {
-            if (int.TryParse(Convert.ToString(text[i]), out int number))
+            for (int i = 0; i < text?.Length; i++)
             {
-                sum += number;
-                inc *= number;
+                if (int.TryParse(Convert.ToString(text[i]), out int number))
+                {
+                    sum += number;
+                    inc *= number;
+                }
             }
+            System.Console.WriteLine($"Сумма цифр ={sum}, Произведение цифр = {inc} ");
         }
-        System.Console.WriteLine($"Сумма цифр ={sum}, Произведение цифр = {inc} ");
+        else
+        {
+            System.Console.WriteLine("error");
+        }
     }
     else
     {
@@ -388,19 +432,26 @@
 {
     Console.WriteLine("Введите число");
     string? text = Console.ReadLine();
-    for (int i = 0; i < text?.Length; i++)
+    if (!string.IsNullOrEmpty(text))
     {
-        if (int.TryParse(Convert.ToString(text[i]), out int number))
+        for (int i = 0; i < text?.Length; i++)
         {
-            if (number % 2 == 0)
+            if (int.TryParse(Convert.ToString(text[i]), out int number))
             {
-                System.Console.WriteLine($"{number} - четное");
-            }
-            else if (number % 2 != 0)
-            {
-                System.Console.WriteLine($"{number} - нечетное");
+                if (number % 2 == 0)
+                {
+                    System.Console.WriteLine($"{number} - четное");
+                }
+                else if (number % 2 != 0)
+                {
+                    System.Console.WriteLine($"{number} - нечетное");
+                }
             }
         }
+    }
+    else
+    {
+        System.Console.WriteLine("error");
     }
 }
 
@@ -412,62 +463,89 @@
     string? number1 = Console.ReadLine();
     Console.WriteLine("Введите первое число");
     string? number2 = Console.ReadLine();
-    if (int.TryParse(number1, out int number3) && int.TryParse(number2, out int number4))
+    if (!string.IsNullOrEmpty(number1) && !string.IsNullOrEmpty(number2))
     {
-        if (number3 >= 0 && number3 >= 0 && number4 >= 0 && number4 <= 10)
+        if (int.TryParse(number1, out int number3) && int.TryParse(number2, out int number4))
         {
-            Console.WriteLine($"I’m {number4}");
+            if (number3 >= 0 && number3 >= 0 && number4 >= 0 && number4 <= 10)
+            {
+                Console.WriteLine($"I’m {number4}");
+            }
+            else
+            {
+                Console.WriteLine($"I’m {number3}{number4}");
+            }
         }
         else
         {
-            Console.WriteLine($"I’m {number3}{number4}");
+            Console.WriteLine("Ваше число меньше нуля или больше десяти");
         }
     }
     else
     {
-        Console.WriteLine("Ваше число меньше нуля или больше десяти");
+        System.Console.WriteLine("error");
     }
 }
 
 // 15. Пользователь вводит строку. Необходимо сделать проверку, что это не число и
 // вывести длину строки
 {
-    Console.WriteLine("Задача номер 15.");
     Console.WriteLine("Введите строку ");
     string? text = Console.ReadLine();
-    if (!int.TryParse(text, out _))
+    if (!string.IsNullOrEmpty(text))
     {
-        if (!string.IsNullOrEmpty(text))
+        if (!int.TryParse(text, out _))
         {
-            Console.WriteLine($"Длинна строки {text.Length}");
+            if (!string.IsNullOrEmpty(text))
+            {
+                Console.WriteLine($"Длинна строки {text.Length}");
+            }
+            else
+            {
+                Console.WriteLine("пустота");
+            }
         }
         else
         {
-            Console.WriteLine("пустота");
+            Console.WriteLine("ввели число");
         }
     }
     else
     {
-        Console.WriteLine("ввели число");
+        System.Console.WriteLine("error");
     }
 }
 // 16. Пользователь вводит строку. Вывести первый символ строки (индексы)
 {
-    string? value1 = Console.ReadLine();
-    Console.WriteLine(value1?[0]);
+    string? value = Console.ReadLine();
+    if (!string.IsNullOrEmpty(value))
+    {
+        Console.WriteLine(value?[0]);
+    }
+    else
+    {
+        System.Console.WriteLine("error");
+    }
 }
 // 17.Пользователь вводит строку.Необходимо сделать проверку, что это не число и
 // вывести текущую строку в большом регистре
 {
     System.Console.WriteLine("введите стоку");
     string? text = Console.ReadLine();
-    if (int.TryParse(text, out int text1))
+    if (!string.IsNullOrEmpty(text))
     {
-        System.Console.WriteLine("это число");
+        if (int.TryParse(text, out int text1))
+        {
+            System.Console.WriteLine("это число");
+        }
+        else
+        {
+            System.Console.WriteLine(text?.ToUpper());
+        }
     }
     else
     {
-        System.Console.WriteLine(text?.ToUpper());
+        System.Console.WriteLine("error");
     }
 }
 
