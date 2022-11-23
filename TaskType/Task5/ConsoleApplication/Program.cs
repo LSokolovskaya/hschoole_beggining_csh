@@ -116,7 +116,7 @@
 // • Найдите индекс 2 подстроки
 {
     string text = "работай, потом отдохнешь";
-    System.Console.WriteLine($"Количество символов в строке: {text.Length}"); 
+    System.Console.WriteLine($"Количество символов в строке: {text.Length}");
     System.Console.WriteLine(text.Replace(", потом ", " "));
     System.Console.WriteLine(text.Replace(" отдохнешь", " "));
     System.Console.WriteLine($"индекс второй подстроки: {text.IndexOf("потом")}");
@@ -276,12 +276,15 @@
 {
     string? text = Console.ReadLine();
     string[] array = text?.Split(' ') ?? new string[0];
-    for (int i = 0; i < array.Length; i++)
+    if (!string.IsNullOrEmpty(text))
     {
-        string result = array[i];
-        string resultToUpper = Convert.ToString(char.ToUpper(result[0]));
-        resultToUpper += result.Remove(0, 1);
-        System.Console.Write(resultToUpper);
+        for (int i = 0; i < array.Length; i++)
+        {
+            string result = array[i];
+            string resultToUpper = Convert.ToString(char.ToUpper(result[0]));
+            resultToUpper += result.Remove(0, 1);
+            System.Console.Write(resultToUpper);
+        }
     }
 }
 
@@ -301,12 +304,15 @@
 {
     string? text = Console.ReadLine();
     string[] array = text?.Split("_") ?? new string[0];
-    for (int i = 0; i < array.Length; i++)
+    if (!string.IsNullOrEmpty(text))
     {
-        string result = array[i];
-        string resultToUpper = Convert.ToString(char.ToUpper(result[0]));
-        resultToUpper += result.Remove(0, 1);
-        System.Console.Write(resultToUpper);
+        for (int i = 0; i < array.Length; i++)
+        {
+            string result = array[i];
+            string resultToUpper = Convert.ToString(char.ToUpper(result[0]));
+            resultToUpper += result.Remove(0, 1);
+            System.Console.Write(resultToUpper);
+        }
     }
 }
 
@@ -315,7 +321,24 @@
 // и фамилия начинаются с заглавной буквы.
 // Chris Alan => true
 // chris alan => false
+{
+    System.Console.WriteLine("Введите имя и фамилию");
+    string? name = Console.ReadLine();
+    string[] array = name?.Split("_") ?? new string[0];
 
+    if (string.IsNullOrEmpty(name))
+    {
+        int i = 0;
+        while (i < array.Length)
+        {
+if()
+        }
+    }
+    else
+    {
+        System.Console.WriteLine("error");
+    }
+}
 
 // 22. На вход программе подается строка. Напишите программу, которая меняет
 // регистр символов, другими словами замените все строчные символы заглавными
