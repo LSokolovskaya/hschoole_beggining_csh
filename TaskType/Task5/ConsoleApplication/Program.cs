@@ -324,14 +324,20 @@
 {
     System.Console.WriteLine("Введите имя и фамилию");
     string? name = Console.ReadLine();
-    string[] array = name?.Split("_") ?? new string[0];
-
-    if (string.IsNullOrEmpty(name))
+    if (!string.IsNullOrEmpty(name))
     {
-        int i = 0;
-        while (i < array.Length)
+        string[] arrays = name.Split(' ');
+        string nameArray = arrays[0];
+        string sureNameArray = arrays[1];
         {
-if()
+            if (char.IsUpper(Convert.ToChar(nameArray[0])) && char.IsUpper(Convert.ToChar(sureNameArray[0])))
+            {
+                System.Console.WriteLine("true");
+            }
+            else
+            {
+                System.Console.WriteLine("false");
+            }
         }
     }
     else
@@ -339,6 +345,7 @@ if()
         System.Console.WriteLine("error");
     }
 }
+
 
 // 22. На вход программе подается строка. Напишите программу, которая меняет
 // регистр символов, другими словами замените все строчные символы заглавными
@@ -512,17 +519,24 @@ if()
 // заканчивается, то вывести true, в противном случае false
 {
     string? text = Console.ReadLine();
-    if (text.EndsWith(".com"))
+    if (!string.IsNullOrEmpty(text))
     {
-        System.Console.WriteLine(text.EndsWith(".com"));
-    }
-    else if (text.EndsWith(".ru"))
-    {
-        System.Console.WriteLine(text.EndsWith(".ru"));
+        if (text.EndsWith(".com"))
+        {
+            System.Console.WriteLine(text.EndsWith(".com"));
+        }
+        else if (text.EndsWith(".ru"))
+        {
+            System.Console.WriteLine(text.EndsWith(".ru"));
+        }
+        else
+        {
+            System.Console.WriteLine("Ошибка ввода");
+        }
     }
     else
     {
-        System.Console.WriteLine("Ошибка ввода");
+        System.Console.WriteLine("error");
     }
 }
 
@@ -530,21 +544,28 @@ if()
 // заканчивается подстрокой .com или .ru, то вывести true, в противном случае false
 {
     string? text = Console.ReadLine();
-    if (text.StartsWith("http"))
+    if (!string.IsNullOrEmpty(text))
     {
-        if (Convert.ToBoolean(text.IndexOf("/") > 0))
+        if (text.StartsWith("http"))
         {
-            if (text.EndsWith(".com"))
+            if (Convert.ToBoolean(text.IndexOf("/") > 0))
             {
-                System.Console.WriteLine(text.EndsWith(".com"));
-            }
-            else if (text.EndsWith(".ru"))
-            {
-                System.Console.WriteLine(text.EndsWith(".ru"));
+                if (text.EndsWith(".com"))
+                {
+                    System.Console.WriteLine(text.EndsWith(".com"));
+                }
+                else if (text.EndsWith(".ru"))
+                {
+                    System.Console.WriteLine(text.EndsWith(".ru"));
+                }
+                else
+                {
+                    System.Console.WriteLine("Ошибка ввода");
+                }
             }
             else
             {
-                System.Console.WriteLine("Ошибка ввода");
+                System.Console.WriteLine("false");
             }
         }
         else
@@ -554,14 +575,9 @@ if()
     }
     else
     {
-        System.Console.WriteLine("false");
+        System.Console.WriteLine("error");
     }
 }
-
-
-
-
-
 
 
 
