@@ -37,19 +37,74 @@
 {
     byte value = 5;
     int value1 = value;
-    long value2 = value1;
-    float value3 = value2;
-    double value4 = value3;
+    long value2 = value;
+    float value3 = value;
+    double value4 = value;
+}
+{
+    int value = 5;
+    long value2 = value;
+    float value3 = value;
+    double value4 = value;
+}
+{
+    long value = 5;
+    float value3 = value;
+    double value4 = value;
+}
+{
+    float value = 5;
+    double value4 = value;
 }
 
 // 3. Произвести все все комбинации явного преобразования (byte, int, long, float, double, decemel)
 {
     byte value = 1;
     int value1 = (int)value;
-    long value2 = (long)value1;
-    float value3 = (float)value2;
-    double value4 = (double)value3;
-    decimal value5 = (decimal)value4;
+    long value2 = (long)value;
+    float value3 = (float)value;
+    double value4 = (double)value;
+    decimal value5 = (decimal)value;
+}
+{
+    int value = 1;
+    long value2 = (long)value;
+    float value3 = (float)value;
+    double value4 = (double)value;
+    decimal value5 = (decimal)value;
+    byte value6 = (byte)value;
+}
+{
+    long value = 1;
+    float value3 = (float)value;
+    double value4 = (double)value;
+    decimal value5 = (decimal)value;
+    byte value6 = (byte)value;
+    int value7 = (int)value;
+}
+{
+    float value = 1;
+    double value4 = (double)value;
+    decimal value5 = (decimal)value;
+    byte value6 = (byte)value;
+    int value7 = (int)value;
+    long value8 = (long)value;
+}
+{
+    double value = 1;
+    decimal value5 = (decimal)value;
+    byte value6 = (byte)value;
+    int value7 = (int)value;
+    long value8 = (long)value;
+    float value9 = (float)value;
+}
+{
+    decimal value = 1;
+    byte value6 = (byte)value;
+    int value7 = (int)value;
+    long value8 = (long)value;
+    float value9 = (float)value;
+    double value10 = (double)value;
 }
 
 // 4. Ввести два числа, произвести арифметические над числами и записать результат в первое число (+, -, /, *, %)
@@ -57,7 +112,9 @@
     int number1 = Convert.ToInt32(Console.ReadLine());
     int number2 = Convert.ToInt32(Console.ReadLine());
     number1 = number1 + number2;
+    number1 += number2;
     number1 = number1 - number2;
+    number1 -= number2;
     number1 = number1 / number2;
     number1 = number1 * number2;
     number1 = number1 % number2;
@@ -75,44 +132,55 @@
 //  что введено не число.
 {//sposob1
     var value = Console.ReadLine();
-    int number;
     {
-        if (int.TryParse(value, out number))
+        if (!string.IsNullOrEmpty(value))
         {
-            Console.WriteLine(number % 5);
+            if (int.TryParse(value, out int number))
+            {
+                Console.WriteLine(number % 5);
+            }
+            else
+            {
+                Console.WriteLine("Введено не число");
+            }
         }
         else
         {
-            Console.WriteLine("Введено не число");
+            System.Console.WriteLine("error");
         }
     }
 }
 {//sposob2
     string? value = Console.ReadLine();
-    int number;
-    bool number1 = int.TryParse(value, out number);
-    string result = number1 == true ? $"{number % 5}" : "Введено не число";
-    Console.WriteLine($"{result}");
+    if (!string.IsNullOrEmpty(value))
+    {
+        bool number1 = int.TryParse(value, out int number);
+        string result = number1 == true ? $"{number % 5}" : "Введено не число";
+        Console.WriteLine($"{result}");
+    }
+    else
+    {
+        System.Console.WriteLine("error");
+    }
 }
 // 7. Ввести две строки, если строки числа вывести их сумму, в противном случае вывести сообщение какие строки
 //  не являются числом
 {
     string? value1 = Console.ReadLine();
     string? value2 = Console.ReadLine();
-    int number1;
-    int number2;
-    if (int.TryParse(value1, out number1) && int.TryParse(value2, out number2))
-    {
-        Console.WriteLine(value1 + value2);
-    }
-    else if (int.TryParse(value1, out number1))
-    {
-        Console.WriteLine("Первое значение не число");
-    }
-    else if (int.TryParse(value2, out number2))
-    {
-        Console.WriteLine("Второе значение не число");
-    }
+    if (!string.IsNullOrEmpty(value1) && !string.IsNullOrEmpty(value2))
+        if (int.TryParse(value1, out int number1) && int.TryParse(value2, out int number2))
+        {
+            Console.WriteLine(value1 + value2);
+        }
+        else if (int.TryParse(value1, out number1))
+        {
+            Console.WriteLine("Первое значение не число");
+        }
+        else if (int.TryParse(value2, out number2))
+        {
+            Console.WriteLine("Второе значение не число");
+        }
 }
 // 8. Ввести два числа, если 1 число больше 2, то произвести деление 1 на 2, если 2 больше 1 вывести разность 
 // между 2 и 1, в противном 
@@ -120,18 +188,25 @@
 {//if-else
     int number1 = Convert.ToInt32(Console.ReadLine());
     int number2 = Convert.ToInt32(Console.ReadLine());
-    if (number1 > number2)
+    if (!string.IsNullOrEmpty(Convert.ToString(number1)) && !string.IsNullOrEmpty(Convert.ToString(number2)))
     {
-        Console.WriteLine(number1 / number2);
-    }
-    else if (number1 < number2)
-    {
-        Console.WriteLine(number2 - number1);
+        if (number1 > number2)
+        {
+            Console.WriteLine(number1 / number2);
+        }
+        else if (number1 < number2)
+        {
+            Console.WriteLine(number2 - number1);
+        }
+        else
+        {
+            Console.WriteLine(number1 + 10);
+            Console.WriteLine(number2 + 10);
+        }
     }
     else
     {
-        Console.WriteLine(number1 + 10);
-        Console.WriteLine(number2 + 10);
+        System.Console.WriteLine("error");
     }
 }
 {//тернарный оператор
@@ -205,8 +280,8 @@
         if (number > 0) { chislo = (number % 10) % 2 == 0 ? "кратно двум" : "не кратно двум"; }
         Console.WriteLine($"Проверка на кратность двум: {thousand} {hundred} {desatki} {chislo}");
     }
-    else 
-    Console.WriteLine("Не удача");
+    else
+        Console.WriteLine("Не удача");
 }
 
 {// 12. Ввести две строки, произвести проверку на пустоту, если строки имеют символы то если
@@ -230,27 +305,27 @@
 
 {
     int number = 5;
-object item = number;
-System.Console.WriteLine(item.GetType());
-string text = "text";
-item = text;
-System.Console.WriteLine(item.GetType());
-char symbol = '?';
-item = symbol;
-System.Console.WriteLine(item.GetType());
-bool value = true;
-item = value;
-System.Console.WriteLine(item.GetType());
+    object item = number;
+    System.Console.WriteLine(item.GetType());
+    string text = "text";
+    item = text;
+    System.Console.WriteLine(item.GetType());
+    char symbol = '?';
+    item = symbol;
+    System.Console.WriteLine(item.GetType());
+    bool value = true;
+    item = value;
+    System.Console.WriteLine(item.GetType());
 }
 
 {
     object item1 = 5.0;
-//подходит если вы уверены на 100%, что item это число
-double number1 = Convert.ToDouble(item1); 
-object item2 = 4;
-//происходит проверка на тип данных, если к такому типу данных привести 
-//возможно возвращаем число, в противном случае значение по умолчанию
-int number2 = item2 is int number ? number : default;
+    //подходит если вы уверены на 100%, что item это число
+    double number1 = Convert.ToDouble(item1);
+    object item2 = 4;
+    //происходит проверка на тип данных, если к такому типу данных привести 
+    //возможно возвращаем число, в противном случае значение по умолчанию
+    int number2 = item2 is int number ? number : default;
 }
 
 //2 object, если 2 стринг - сумму длинн их, если 2 инта - сумму интов, если нет сообщение - всё плохо))))
@@ -273,17 +348,17 @@ int number2 = item2 is int number ? number : default;
 
 {
     object item2 = "5";
-int number2;
+    int number2;
 
-if (item2 is int number )
-{
-    number2 = number; 
-}
-else
-{
-    number2 = default;
-}
-System.Console.WriteLine(number2);
+    if (item2 is int number)
+    {
+        number2 = number;
+    }
+    else
+    {
+        number2 = default;
+    }
+    System.Console.WriteLine(number2);
 }
 
 {
