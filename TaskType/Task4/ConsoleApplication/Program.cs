@@ -28,7 +28,7 @@
     Console.WriteLine("Введите число:");
     int number = Convert.ToInt32(Console.ReadLine());
     number = number % 2;
-    string result = number == 0 ? " число чётное" : " число нечётное";
+    string result = number == 0 ? "число чётное" : "число нечётное";
     Console.WriteLine(result);
 }
 //второй способ
@@ -39,11 +39,11 @@
     {
         if (number % 2 == 0)
         {
-            System.Console.WriteLine(" число чётное");
+            System.Console.WriteLine("число чётное");
         }
         else
         {
-            System.Console.WriteLine(" число нечётное");
+            System.Console.WriteLine("число нечётное");
         }
     }
     else
